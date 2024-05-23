@@ -27,12 +27,12 @@ def test_compile_eval():
     assert search_file(target, rf"path = Path\(\\\"student_loans\.keras\\\"\).*nn_model.save\(path\)") == True, "The model was saved and exported to a keras file named student_loans.keras. (5 points)"
 
 ### Predict Loan Repayment Success by Using your Neural Network Model (25 points)
-# def test_predict():
-#     assert search_file(target, rf"this should fail") == True, "The saved model was reloaded. (5 points)"
+def test_predict():
+    assert search_file(target, rf"tf\.keras\.models\.load_model\(path\)") == True, "The saved model was reloaded. (5 points)"
 
-#     assert search_file(target, rf"this should fail") == True, "The reloaded model was used to make binary predictions on the testing data. (10 points)"
+    assert search_file(target, rf"predictions = nn_model_loaded\.predict\(X_test_scaled,verbose=2\).*predictions\.round\(\)") == True, "The reloaded model was used to make binary predictions on the testing data. (10 points)"
     
-#     assert search_file(target, rf"this should fail") == True, "A classification report is generated for the predictions and the testing data. (10 points)"
+    assert search_file(target, rf"classification_report\(y_test, predictions_df\)") == True, "A classification report is generated for the predictions and the testing data. (10 points)"
 
 ### Discuss creating a recommendation system for student loans (30 points)
 # def test_rec():
